@@ -20,3 +20,5 @@ xhttp.onreadystatechange = function () {
 xhttp.open("GET", "https://reqres.in/api/users", true);
 
 xhttp.send();
+
+// test ve xmlHttpRequest
