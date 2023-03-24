@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication với jwt</title>
+  </head>
+  <body>
+    <form id="login-form">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" value="admin" />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" value="admin" />
+      <button type="submit" id="btn-login">Đăng Nhập</button>
+      <button id="btn-get-profile">Get Profile</button>
+      <button id="btn-get-products">Get Products</button>
+      <button id="btn-get-both">Get Profile & Products</button>
+    </form>
+    <script src="./axios.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
