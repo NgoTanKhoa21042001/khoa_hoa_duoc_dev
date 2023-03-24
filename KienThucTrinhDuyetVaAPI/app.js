@@ -23,7 +23,7 @@
 
 // test ve xmlHttpRequest
 
-// promise
+//promise;
 // fetch("https://reqres.in/api/users?page=2")
 //   .then((response) => {
 //     console.log(response);
@@ -41,19 +41,13 @@
 //            `;
 //     });
 //     document.getElementById("demo").innerHTML = html;
-//   });
-
-// AXIOS
-
-// axios
-//   .get("https://reqres.in/api/users?page=2")
-//   .then(function (response) {
 //     console.log(response);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
 //   });
 
+AXIOS;
+
+//
+// tạo một instance dùng đi dugnf lại
 const http = axios.create({
   baseURL: "https://reqres.in/api",
 });
@@ -61,7 +55,7 @@ const http = axios.create({
 // http.get("/users/2").then(function (res) {
 //   console.log(res);
 // });
-
+// tạo interceptor
 http.interceptors.response.use(
   (config) => {
     console.log(config);
@@ -72,6 +66,6 @@ http.interceptors.response.use(
   }
 );
 
-http.get("/users/2").then(function (res) {
+http.get("/users").then(function (res) {
   console.log(res);
 });
