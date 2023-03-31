@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const initialAddress = () => {
   return {
@@ -8,6 +8,20 @@ const initialAddress = () => {
       house: "HouseHold",
     },
   };
+};
+
+const getAddress = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        nation: "USA",
+        city: {
+          street: "100 Nicolas Street",
+          house: "HouseHold",
+        },
+      });
+    }, 3000);
+  });
 };
 
 export default function User() {
@@ -27,9 +41,24 @@ export default function User() {
       };
     });
   };
+  // Giống component diđUpate, effect function chạy lại mỗi khi comp re render
+
+  useEffect(() => {
+    // truy cập dc vào dom thật
+    console.log("render api");
+    getAddress().then((res) => {
+      setAddress((prevAddress) => {
+        const newAddress = { ...prevAddress };
+        // Muốn thay đổi city thôi, nation giữ nguyên
+        newAddress.city = res.city;
+        return newAddress;
+      });
+    });
+    console.log("render");
+  }, []);
   return (
     <div>
-      <h1>User Functional component</h1>
+      a<h1>User Functional component</h1>
       <ul>
         <li>First name: {firstName} </li>
         <li>Age {age}</li>
