@@ -44,7 +44,7 @@
 //     console.log(response);
 //   });
 
-AXIOS;
+//AXIOS;
 
 //
 // tạo một instance dùng đi dugnf lại
