@@ -51,3 +51,7 @@ const b = () => {};
 git log
 
 ```
+
+## Đổi tên nhánh
+
+![](https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/355573008_189797577383035_6681614705243198519_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=cNUFaMpqltEAX-Vja8w&_nc_ht=scontent.fdad3-4.fna&oh=03_AdQ63NChBGMqNcPzXn4SmFuO2VW5OytCmPICBkfVhuhlzw&oe=64B9D58A)
