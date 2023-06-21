@@ -1,0 +1,36 @@
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  .task {
+    display: flex;
+    justify-content: space-between;
+    .taskCheckbox {
+      transform: scale(1.5);
+      margin-right: 0.9rem;
+    }
+    .taskName {
+      flex: 0 0 70%;
+      max-width: 70%;
+      padding: 0 0 0.5rem;
+      color: #383f50;
+      &.taskNameDone {
+        color: #b2b7bb;
+        text-decoration: line-through;
+      }
+    }
+
+    .taskAction {
+      display: flex;
+      gap: 0.9rem;
+      .taskBtn {
+      }
+    }
+  }
+}

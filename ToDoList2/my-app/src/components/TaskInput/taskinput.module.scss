@@ -1,0 +1,29 @@
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+
+  input {
+    height: 4rem;
+    margin-right: 1rem;
+    padding: 0 1rem;
+    border-radius: 0.7rem;
+    border-width: 1px;
+    // flex-grow: 1;
+  }
+  button {
+    width: 5rem;
+    height: 4rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px;
+    border-width: 1px;
+  }
+}
