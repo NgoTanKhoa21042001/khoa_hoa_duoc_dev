@@ -23,7 +23,7 @@
 
 // test ve xmlHttpRequest
 
-//promise;
+// promise;
 // fetch("https://reqres.in/api/users?page=2")
 //   .then((response) => {
 //     console.log(response);
@@ -46,7 +46,6 @@
 
 //AXIOS;
 
-//
 // tạo một instance dùng đi dugnf lại
 const http = axios.create({
   baseURL: "https://reqres.in/api",
