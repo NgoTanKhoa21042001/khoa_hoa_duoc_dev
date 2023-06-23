@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Todo } from '../../@types/todo.type'
 import styles from './taskinput.module.scss'
@@ -39,9 +39,14 @@ const TaskInput = (props: TaskInputProp) => {
     }
   }, [currentTodo])
 
+  // func là một obj, obj cũ và obj mới khác nhau nên re-render
+  const handleClick = useCallback((value: any) => {
+    console.log(value)
+  }, [])
+
   return (
     <div className='mb-2'>
-      <Title address={address} />
+      <Title address={address} handleClick={handleClick} />
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type='text'
