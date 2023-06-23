@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Todo } from '../../@types/todo.type'
 import styles from './taskinput.module.scss'
@@ -33,9 +33,12 @@ const TaskInput = (props: TaskInputProp) => {
   }
   // Mỗi lần taskinput re-render thì tạo instance address mới, vì thế re-render thì
   // có một address với tham chíu mới
-  const address = {
-    street: '25 Ha Huy Tap'
-  }
+  const address = useMemo(() => {
+    return {
+      street: '27 Ha Huy Tap'
+    }
+  }, [currentTodo])
+
   return (
     <div className='mb-2'>
       <Title address={address} />
