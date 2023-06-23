@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Todo } from '../../@types/todo.type'
 import styles from './taskinput.module.scss'
+import Title from '../Title'
 interface TaskInputProp {
   addTodos: (name: string) => void
   currentTodo: Todo | null
@@ -30,9 +31,14 @@ const TaskInput = (props: TaskInputProp) => {
       setName(event.target.value)
     }
   }
+  // Mỗi lần taskinput re-render thì tạo instance address mới, vì thế re-render thì
+  // có một address với tham chíu mới
+  const address = {
+    street: '25 Ha Huy Tap'
+  }
   return (
     <div className='mb-2'>
-      <h1 className={styles.title}>To do list Typescript</h1>
+      <Title address={address} />
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type='text'
