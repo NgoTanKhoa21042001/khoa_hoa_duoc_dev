@@ -7,10 +7,11 @@ interface TaskListProp {
   todos: Todo[]
   handleDoneTodo: (id: string, done: boolean) => void
   startEditTodo: (id: string) => void
+  deleteTodo: (id: string) => void
 }
 const TaskList = (props: TaskListProp) => {
   // định nghĩa type cho todos la array
-  const { doneTaskList, todos, handleDoneTodo, startEditTodo } = props
+  const { doneTaskList, todos, handleDoneTodo, startEditTodo, deleteTodo } = props
 
   return (
     <div>
@@ -31,7 +32,9 @@ const TaskList = (props: TaskListProp) => {
               </button>
             </div>
             <div className='style.taskAction'>
-              <button className={styles.taskBtn}>🗑️</button>
+              <button className={styles.taskBtn} onClick={() => deleteTodo(todo.id)}>
+                🗑️
+              </button>
             </div>
           </div>
         ))}
