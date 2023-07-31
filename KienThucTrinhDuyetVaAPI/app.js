@@ -47,24 +47,61 @@
 //AXIOS;
 
 // tạo một instance dùng đi dugnf lại
+// const http = axios.create({
+//   baseURL: "https://reqres.in/api",
+// });
+
+// // http.get("/users/2").then(function (res) {
+// //   console.log(res);
+// // });
+// // tạo interceptor
+// http.interceptors.response.use(
+//   (config) => {
+//     console.log(config);
+//     return config.data.data;
+//   },
+//   (error) => {
+//     return Promise.reject(error);
+//   }
+// );
+
+// http.get("/users").then(function (res) {
+//   console.log(res);
+// });
+
 const http = axios.create({
+  // request config
   baseURL: "https://reqres.in/api",
 });
 
-// http.get("/users/2").then(function (res) {
-//   console.log(res);
-// });
-// tạo interceptor
-http.interceptors.response.use(
-  (config) => {
-    console.log(config);
-    return config.data.data;
+http.interceptors.request.use(
+  function (config) {
+    // Do something before request is sent
+    return config;
   },
-  (error) => {
+  function (error) {
+    // Do something with request error
     return Promise.reject(error);
   }
 );
 
-http.get("/users").then(function (res) {
-  console.log(res);
-});
+http.interceptors.response.use(
+  function (config) {
+    // Do something before request is sent
+    console.log(config, "response");
+    return config.data.data;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
+http
+  .get("/users/2")
+  .then(function (res) {
+    console.log(res);
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
