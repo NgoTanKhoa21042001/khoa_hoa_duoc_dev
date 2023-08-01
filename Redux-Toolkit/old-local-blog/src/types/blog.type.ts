@@ -2,7 +2,7 @@ export interface Post {
   title: string
   description: string
   id: string
-  publishedDate: string
+  publishDate: string
   featuredImage: string
-  published: string
+  published: boolean
 }

@@ -1,4 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
+import { initalPostList } from 'constants/blog'
 import { Post } from 'types/blog.type'
 
 interface BlogState {
@@ -6,7 +7,7 @@ interface BlogState {
 }
 
 const initialState: BlogState = {
-  postList: []
+  postList: initalPostList
 }
 // builderCallback là nơi xử lí action và update state trong này
 const blogReducer = createReducer(initialState, (builder) => {})
