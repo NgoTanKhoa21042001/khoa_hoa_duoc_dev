@@ -5,7 +5,7 @@ import { Post } from 'types/blog.type'
 interface BlogState {
   postList: Post[]
 }
-
+// initialState nên đặt kiểu dữ liệu
 const initialState: BlogState = {
   postList: initalPostList
 }
