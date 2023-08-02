@@ -5,7 +5,9 @@ import { deletePost } from 'pages/blog/blog.reducer'
 export default function PostList() {
   // lấy state trong redux sử dụng useSelector
   const postList = useSelector((state: RootState) => state.blog.postList)
+  console.log(postList)
   const dispatch = useDispatch()
+
   const handleDelete = (postId: string) => {
     dispatch(deletePost(postId))
   }

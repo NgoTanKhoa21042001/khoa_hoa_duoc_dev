@@ -26,12 +26,13 @@ const blogReducer = createReducer(initialState, (builder) => {
       state.postList.push(post)
     })
     .addCase(deletePost, (state, action) => {
-      // truyền id vào
+      // id của post
       const postId = action.payload
+      // tìm index của post
       const foundPostIndex = state.postList.findIndex((post) => post.id === postId)
-      // sau khi tìm dc id
+      // tiến hành xóa
       if (foundPostIndex !== -1) {
-        // mutate state
+        //  // mutate state
         state.postList.splice(foundPostIndex, 1)
       }
     })
