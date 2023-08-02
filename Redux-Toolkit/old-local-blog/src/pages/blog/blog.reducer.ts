@@ -12,16 +12,29 @@ const initialState: BlogState = {
 
 // tạo action, truyền type là Post
 export const addPost = createAction<Post>('blog/addPost')
+// delete cần id nên truyền id có kiểu là string
+export const deletePost = createAction<string>('blog/deletePost')
 // builderCallback là nơi xử lí action và update state trong này
 const blogReducer = createReducer(initialState, (builder) => {
   // addCase nhận 2 tham số: 1.Là addPost, 2. là callback
   // builder nhu là func reducer
   // immerjs giúp cta mutate state an toàn
-  builder.addCase(addPost, (state, action) => {
-    // push action.payload
-    const post = action.payload
-    state.postList.push(post)
-  })
+  builder
+    .addCase(addPost, (state, action) => {
+      // push action.payload
+      const post = action.payload
+      state.postList.push(post)
+    })
+    .addCase(deletePost, (state, action) => {
+      // truyền id vào
+      const postId = action.payload
+      const foundPostIndex = state.postList.findIndex((post) => post.id === postId)
+      // sau khi tìm dc id
+      if (foundPostIndex !== -1) {
+        // mutate state
+        state.postList.splice(foundPostIndex, 1)
+      }
+    })
 })
 
 export default blogReducer
