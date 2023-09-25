@@ -87,12 +87,12 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
   function (config) {
-    // Do something before request is sent
+    // Do something before response is sent
     console.log(config, "response");
     return config.data.data;
   },
   function (error) {
-    // Do something with request error
+    // Do something with response error
     return Promise.reject(error);
   }
 );

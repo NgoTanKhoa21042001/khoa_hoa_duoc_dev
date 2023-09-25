@@ -1,4 +1,4 @@
-import { addPost, cancleEditingPost, finishingEditingPost } from 'pages/blog/blog.reducer'
+import { addPost, cancelEditingPost, finishingEditingPost } from 'pages/blog/blog.reducer'
 import { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'store'
@@ -21,6 +21,7 @@ export default function CreatePost() {
   const dispatch = useDispatch()
   // handle editing
   useEffect(() => {
+    //nếu mà edittingPost null thì lấy initialState
     setFormData(editingPost || initialState)
   }, [editingPost])
 
@@ -35,7 +36,7 @@ export default function CreatePost() {
     setFormData(initialState)
   }
   const handleCancelEditingPost = () => {
-    dispatch(cancleEditingPost())
+    dispatch(cancelEditingPost())
   }
 
   return (

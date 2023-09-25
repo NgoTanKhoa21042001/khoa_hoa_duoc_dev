@@ -1,4 +1,4 @@
-import { createAction, createReducer } from '@reduxjs/toolkit'
+import { createAction, createReducer, current } from '@reduxjs/toolkit'
 import { initalPostList } from 'constants/blog'
 import { Post } from 'types/blog.type'
 
@@ -20,7 +20,7 @@ export const deletePost = createAction<string>('blog/deletePost')
 // startEditting
 export const startEditingPost = createAction<string>('/blog/startEditingPost')
 // cancel editing post
-export const cancleEditingPost = createAction('/blog/cancleEditingPost')
+export const cancelEditingPost = createAction('/blog/cancelEditingPost')
 // finish editing post
 export const finishingEditingPost = createAction<Post>('/blog/finishEditing')
 
@@ -51,7 +51,7 @@ const blogReducer = createReducer(initialState, (builder) => {
       const foundPost = state.postList.find((post) => post.id === postId) || null
       state.editingPost = foundPost
     })
-    .addCase(cancleEditingPost, (state) => {
+    .addCase(cancelEditingPost, (state) => {
       state.editingPost = null
     })
     .addCase(finishingEditingPost, (state, action) => {
@@ -68,6 +68,14 @@ const blogReducer = createReducer(initialState, (builder) => {
       // reset lại về button Publish Post
       state.editingPost = null
     })
+    .addMatcher(
+      (action) => action.type.includes('cancel'),
+      // thao tác trên khu vực này là state nháp của immerjs
+      // mún log ra dc state gốc thì cần công cụ hỗ trợ như là current
+      (state, action) => {
+        console.log(current(state))
+      }
+    )
 })
 
 export default blogReducer
