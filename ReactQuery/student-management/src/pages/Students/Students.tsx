@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useQueryString } from 'utils/utils'
 
 export default function Students() {
-  const [students, setStudents] = useState<StudentsType>([])
+  // const [students, setStudents] = useState<StudentsType>([])
   // const [isLoading, setIsLoading] = useState<boolean>(false)
 
   // useEffect(() => {
@@ -21,17 +21,11 @@ export default function Students() {
   //     })
   // }, [])
 
-  // useEffect(() => {
-  //   setIsLoading(true)
-  //   getStudents(1, 10)
-  //     .then((res) => {
-  //       setStudents(res.data)
-  //     })
-  //     .finally(() => setIsLoading(false))
-  // }, [])
   const queryString: { page?: string } = useQueryString()
   const page = Number(queryString.page) || 1
-
+  // test dựa trên state
+  // query key
+  // const [__page] = useState(1)
   // const { data, isLoading } = useQuery({
   //   queryKey: ['students', page],
   //   queryFn: () => getStudents(page, 10)
@@ -41,6 +35,9 @@ export default function Students() {
   // return null
   const { data, isLoading } = useQuery({
     // queryKey là một deependencies giống như array khi dùng useEffect
+    // query 1 danh sách students
+    // khi mà cái students change thì queryFn đc trigger (gọi lại)
+    // khi mà thay đổi page thì page dưới này sẽ nhận giá trị mới và gọi lại queryFn
     queryKey: ['students', page],
     // truyền vào func để gọi api dùng để resolve hay reject
     queryFn: () => getStudents(page, 10)
